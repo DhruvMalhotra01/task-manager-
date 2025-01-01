@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style.css" />
+
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+
+      <div class="top">
+        <div class="logo">
+          <img src="./images/logo.png" alt="Logo" />
+          <h2>TIME<span class="primary-variant">CHECK</span></h2>
+        </div>
+        <div class="close" id="close-btn">
+          <span class="material-icons-sharp"> close </span>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <a href="#" class="active">
+          <span class="material-icons-sharp"> dashboard </span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            calendar_month
+          </span>
+          <h3>Calendar</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            checklist
+          </span>
+          <h3>Attendance</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            group
+          </span>
+          <h3>Employee</h3>
+        </a>
+        
+        <a href="#">
+          <span class="material-icons-sharp">
+            equalizer
+          </span>
+          <h3>Leave Request</h3>
+          <span class="message-count">4</span>
+        </a>
+        
+        <a href="#">
+          <span class="material-icons-sharp"> logout </span>
+          <h3>Logout</h3>
+        </a>
+      </div>
+    </aside>
+    <main>
+      <div class="top">
+        <div class="left">
+          <div class="employee-text">
+            <h1>Employee</h1>
+            <p>Manage your Workforce</p>
+          </div>
+        </div>
+        <div class="right">
+          <button id="menu-btn">
+            <span class="material-icons-sharp"> menu </span>
+          </button>
+          <div class="theme-toggler">
+            <span class="material-icons-sharp active"> light_mode </span>
+            <span class="material-icons-sharp"> dark_mode </span>
+          </div>
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <b>Bruno</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+            <div class="profile-photo">
+              <img src="./images/profile-1.jpg" alt="Profile Picture" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="horizontal">
+        <nav>
+          <ul>
+            <li><a href="#" onclick="showSection('manageEmployees')" id="manageEmployeesTab">Manage Employees</a></li>
+            <li><a href="#" onclick="showSection('organizationChart')" id="organizationChartTab">Organization Chart</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div id="manageEmployees" class="section active">
+        <div class="heading">
+          <div class="head">
+            <h2>Manage Employees</h2>
+          </div>
+          <div class="input-container">
+            <span class="material-icons-sharp">
+              search
+            </span>
+            <input type="text" id="searchInput" placeholder="Search employee" onkeyup="searchEmployee()">
+          </div>
+          
+        </div>
+        <table class="employee-table">
+          <thead>
+            <tr>
+              <th>Employee Name</th>
+              <th>Phone Number</th>
+              <th>Department</th>
+              <th>Job Title</th>
+              <th>Contract Type</th>
+              <th>Attendance</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="employee-info">
+                  <img src="profile1.jpg" alt="Profile" class="profile-pic">
+                  <div class="text-info">
+                    <strong>Brooklyn Simmons</strong>
+                    <p>brook-simms@mail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>(+62) 928 7273 7262</td>
+              <td><span class="badge design">Design</span></td>
+              <td>Creative Director</td>
+              <td>Onsite - Fulltime</td>
+              <td>120h 32m</td>
+              <td><button class="action-btn" data-employee="Brooklyn Simmons">⋮</button></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="employee-info">
+                  <img src="profile1.jpg" alt="Profile" class="profile-pic">
+                  <div class="text-info">
+                    <strong>Cody Fisher </strong>
+                    <p>cody_fisher99@mail.com</p>
+                  </div>
+                </div>
+              </td>              <td>(+62) 928 7273 7262</td>
+              <td><span class="badge development">Development</span></td>
+              <td>Head of Development</td>
+              <td>Onsite - Fulltime</td>
+              <td>115h 20m</td>
+              <td><button class="action-btn" data-employee="Cody Fisher">⋮</button></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="employee-info">
+                  <img src="profile1.jpg" alt="Profile" class="profile-pic">
+                  <div class="text-info">
+                    <strong>Ralph Edwards</strong>
+                    <p>ralph_uxdsg@mail.com</p>
+                  </div>
+                </div>
+              </td>             
+               <td>(+62) 928 7273 7262</td>
+              <td><span class="badge design">Design</span></td>
+              <td>Sr. UI/UX Designer</td>
+              <td>Onsite - Fulltime</td>
+              <td>110h 45m</td>
+              <td><button class="action-btn" data-employee="Ralph Edwards">⋮</button></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="employee-info">
+                  <img src="profile1.jpg" alt="Profile" class="profile-pic">
+                  <div class="text-info">
+                    <strong>Jane Cooper </strong>
+                    <p>jane_cooper@mail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>(+62) 123 4567 8901</td>
+              <td><span class="badge hr">HR</span></td>
+              <td>HR Manager</td>
+              <td>Remote - Part-time</td>
+              <td>80h 15m</td>
+              <td><button class="action-btn" data-employee="Jane Cooper">⋮</button></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="employee-info">
+                  <img src="profile1.jpg" alt="Profile" class="profile-pic">
+                  <div class="text-info">
+                    <strong>Esther Howard</strong>
+                    <p>esther_howard@mail.com</p>
+                  </div>
+                </div>
+              </td>              
+              <td>(+62) 321 6547 8902</td>
+              <td><span class="badge marketing">Marketing</span></td>
+              <td>Marketing Specialist</td>
+              <td>Hybrid - Fulltime</td>
+              <td>105h 10m</td>
+              <td><button class="action-btn" data-employee="Esther Howard">⋮</button></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="employee-info">
+                  <img src="profile1.jpg" alt="Profile" class="profile-pic">
+                  <div class="text-info">
+                    <strong>Wade Warren </strong>
+                    <p>wade_warren@mail.comm</p>
+                  </div>
+                </div>
+              </td>              
+              <td>(+62) 456 7890 1234</td>
+              <td><span class="badge design">Design</span></td>
+              <td>Graphic Designer</td>
+              <td>Onsite - Fulltime</td>
+              <td>98h 47m</td>
+              <td><button class="action-btn" data-employee="Wade Warren">⋮</button></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="employee-info">
+                  <img src="profile1.jpg" alt="Profile" class="profile-pic">
+                  <div class="text-info">
+                    <strong>Arlene McCoy</strong>
+                    <p>arlene_mccoy@mail.com</p>
+                  </div>
+                </div>
+              </td>              
+              <td>(+62) 987 6543 2100</td>
+              <td><span class="badge development">Development</span></td>
+              <td>Software Engineer</td>
+              <td>Onsite - Contract</td>
+              <td>120h 5m</td>
+              <td><button class="action-btn" data-employee="Arlene McCoy">⋮</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+      <!-- Modal -->
+      <div class="modal" id="employeeModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Employee Details</h2>
+            <button class="close-btn">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="profile-section">
+              <img src="profile.jpg" alt="Profile Image" class="profile-image">
+              <button class="change-profile-btn">Change Profile Image</button>
+            </div>
+            <div class="employee-info">
+              <div class="form-group">
+                <label for="modal-first-name">First Name</label>
+                <input type="text" id="modal-first-name" value="">
+              </div>
+              <div class="form-group">
+                <label for="modal-last-name">Last Name</label>
+                <input type="text" id="modal-last-name" value="">
+              </div>
+              <div class="form-group">
+                <label for="modal-email">Email Address</label>
+                <input type="email" id="modal-email" value="">
+              </div>
+              <div class="form-group">
+                <label for="modal-phone">Phone Number</label>
+                <input type="text" id="modal-phone" value="">
+              </div>
+              <div class="form-group">
+                <label for="modal-position">Position</label>
+                <input type="text" id="modal-position" value="">
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="save-btn">Save Changes</button>
+            <button class="cancel-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="organizationChart" class="section">
+        <h2>Organization Chart</h2>
+        <!-- Content for Organization Chart goes here -->
+        <div class="org-chart-container">
+          <div class="org-node root-node">
+            <div class="node-title">Cameron Williamson</div>
+            <div class="node-subtitle">Founder & CEO</div>
+          </div>
+          <div class="org-branches">
+            <!-- Business and Marketing Section -->
+            <div class="branch">
+              <div class="branch-title business">Business and Marketing</div>
+              <div class="org-node">
+                <div class="node-title">Leslie Alexander</div>
+                <div class="node-subtitle">Head of Project Manager</div>
+              </div>
+              <div class="nested-branch">
+                <div class="org-node">
+                  <div class="node-title">Cody Firmansyah</div>
+                  <div class="node-subtitle">Senior Project Manager</div>
+                </div>
+                <div class="org-node">
+                  <div class="node-title">Jenni William</div>
+                  <div class="node-subtitle">Project Manager</div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Design Section -->
+            <div class="branch">
+              <div class="branch-title design">Design</div>
+              <div class="org-node">
+                <div class="node-title">Brooklyn Simmons</div>
+                <div class="node-subtitle">Creative Director</div>
+              </div>
+              <div class="nested-branch">
+                <div class="org-node">
+                  <div class="node-title">Ralph Edwards</div>
+                  <div class="node-subtitle">Senior UI/UX Designer</div>
+                </div>
+                <div class="org-node">
+                  <div class="node-title">Brooklyn Hebe</div>
+                  <div class="node-subtitle">Senior Graphic Designer</div>
+                </div>
+                <div class="org-node">
+                  <div class="node-title">Vidi Gutierrez</div>
+                  <div class="node-subtitle">UX Designer</div>
+                </div>
+                <div class="org-node">
+                  <div class="node-title">Pablo Hive</div>
+                  <div class="node-subtitle">Graphic Designer</div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Development Section -->
+            <div class="branch">
+              <div class="branch-title development">Development</div>
+              <div class="org-node">
+                <div class="node-title">Cody Fisher</div>
+                <div class="node-subtitle">Head of Development</div>
+              </div>
+              <div class="nested-branch">
+                <div class="org-node">
+                  <div class="node-title">Asther Mulyani</div>
+                  <div class="node-subtitle">Senior Front-End</div>
+                </div>
+                <div class="org-node">
+                  <div class="node-title">Jenny Wilson</div>
+                  <div class="node-subtitle">QA Engineering</div>
+                </div>
+                <div class="org-node">
+                  <div class="node-title">Eden Khoiruddin</div>
+                  <div class="node-subtitle">Back-End</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>
