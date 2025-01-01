@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style.css" />
+
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+
+      <div class="top">
+        <div class="logo">
+          <img src="./images/logo.png" alt="Logo" />
+          <h2>TIME<span class="primary-variant">CHECK</span></h2>
+        </div>
+        <div class="close" id="close-btn">
+          <span class="material-icons-sharp"> close </span>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <a href="#" class="active">
+          <span class="material-icons-sharp"> dashboard </span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            calendar_month
+          </span>
+          <h3>Calendar</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            checklist
+          </span>
+          <h3>Attendance</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            group
+          </span>
+          <h3>Employee</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            assignment
+          </span>
+          <h3>Projects</h3>
+          <span class="message-count">26</span>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            equalizer
+          </span>
+          <h3>Leave Request</h3>
+          <span class="message-count">4</span>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            donut_small
+          </span>
+          <h3>Analysis</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp"> logout </span>
+          <h3>Logout</h3>
+        </a>
+      </div>
+    </aside>
+    <main>
+      <div class="top">
+        <div class="left">
+          <h2>Leave Requests</h2>
+        </div>
+        <div class="right">
+          <button id="menu-btn">
+            <span class="material-icons-sharp"> menu </span>
+          </button>
+          <div class="theme-toggler">
+            <span class="material-icons-sharp active"> light_mode </span>
+            <span class="material-icons-sharp"> dark_mode </span>
+          </div>
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <b>Bruno</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+            <div class="profile-photo">
+              <img src="./images/profile-1.jpg" alt="Profile Picture" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-container">
+        <div class="sort">
+          <div class="search">
+            <input type="text" id="search-bar" placeholder="Search by Employee" onkeyup="filterTable()">
+          </div>
+          <div class="sortr">
+            <div class="excel">
+              <button onclick="exportToExcel()">Export to Excel</button>
+            </div>
+            <div class="pdf">
+              <button onclick="exportToPDF()">Export to PDF</button>
+            </div>
+          </div>
+        </div>
+        <table id="leave-requests">
+          <thead>
+            <tr>
+              <th>Employee</th>
+              <th>Leave Type</th>
+              <th>Dates Requested</th>
+              <th>Duration</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Sample Data for Employees -->
+            <tr>
+              <td class="employee-info">
+                <img src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/people19.png" class="profile-pic" > Andrew Davilla
+              </td>
+              <td>Annual Leave</td>
+              <td>Sep 12 - Sep 16, 2024</td>
+              <td>5 days</td>
+              <td class="status pending">Pending</td>
+              <td>
+                <div class="dropdown">
+                  <button class="dropdown-btn" onclick="toggleDropdown(this)">⋮</button>
+                  <div class="dropdown-content">
+                    <button onclick="approveRequest(this)">✔ Approve</button>
+                    <button onclick="declineRequest(this)">✖ Decline</button>
+                    <button onclick="sendMessage(this)">✉ Send Message</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="employee-info">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIEd2zxEc_4IQ1jHyniHLECu15zRjkHTBJzA&s" class="profile-pic"> Robert Fox
+              </td>              
+              <td>Sick Leave</td>
+              <td>Aug 2 - Aug 9, 2024</td>
+              <td>8 days</td>
+              <td class="status pending">Pending</td>
+              <td>
+                <div class="dropdown">
+                  <button class="dropdown-btn" onclick="toggleDropdown(this)">⋮</button>
+                  <div class="dropdown-content">
+                    <button onclick="approveRequest(this)">✔ Approve</button>
+                    <button onclick="declineRequest(this)">✖ Decline</button>
+                    <button onclick="sendMessage(this)">✉ Send Message</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="employee-info">
+                <img src="https://media.istockphoto.com/id/1305462732/photo/headshot-studio-portrait-of-a-woman-in-profile-looking-at-the-camera.jpg?s=612x612&w=0&k=20&c=T0R-pAmJJpErWc8hE0jSJnmptUFQ5MvtPX7NPJJln9s=" class="profile-pic" > Elizabeth 
+              </td>              
+              <td>Annual Leave</td>
+              <td>Mar 6 - Mar 7, 2024</td>
+              <td>2 days</td>
+              <td class="status approved">Approved</td>
+              <td>
+                <div class="dropdown">
+                  <button class="dropdown-btn" onclick="toggleDropdown(this)">⋮</button>
+                  <div class="dropdown-content">
+                    <button onclick="approveRequest(this)">✔ Approve</button>
+                    <button onclick="declineRequest(this)">✖ Decline</button>
+                    <button onclick="sendMessage(this)">✉ Send Message</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="employee-info">
+                <img src="https://marketplace.canva.com/EAFqNrAJpQs/1/0/1600w/canva-neutral-pink-modern-circle-shape-linkedin-profile-picture-WAhofEY5L1U.jpg" class="profile-pic" >Maria Husain
+              </td>              
+              <td>Sick Leave</td>
+              <td>Feb 4 - Feb 8, 2024</td>
+              <td>5 days</td>
+              <td class="status declined">Declined</td>
+              <td>
+                <div class="dropdown">
+                  <button class="dropdown-btn" onclick="toggleDropdown(this)">⋮</button>
+                  <div class="dropdown-content">
+                    <button onclick="approveRequest(this)">✔ Approve</button>
+                    <button onclick="declineRequest(this)">✖ Decline</button>
+                    <button onclick="sendMessage(this)">✉ Send Message</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>
