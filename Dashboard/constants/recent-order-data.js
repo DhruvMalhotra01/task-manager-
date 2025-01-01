@@ -1,0 +1,51 @@
+const RECENT_ORDER_DATA = [
+  {
+    productName: "David Willson",
+    productNumber: "85631",
+    payment: "1/1/2024",
+    status: "Pending",
+    statusColor: "warning",
+  },
+  {
+    productName: "LARVENDER",
+    productNumber: "36378",
+    payment: "12/4/2024",
+    status: "Declined",
+    statusColor: "danger",
+  },
+  {
+    productName: "Katalaya",
+    productNumber: "49347",
+    payment: "2/5/2024",
+    status: "Pending",
+    statusColor: "warning",
+  },
+  {
+    productName: "Charlie Puth",
+    productNumber: "96996",
+    payment: "31/1/2024",
+    status: "Delivered",
+    statusColor: "primary",
+  },
+  {
+    productName: "Gopi bahu",
+    productNumber: "22821",
+    payment: "23/6/2024",
+    status: "Delivered",
+    statusColor: "primary",
+  },
+  {
+    productName: "Narinder Modi",
+    productNumber: "81475",
+    payment: "12/5/2024",
+    status: "Pending",
+    statusColor: "warning",
+  },
+  {
+    productName: "Lorena Lewis",
+    productNumber: "00482",
+    payment: "21/8/2024",
+    status: "Delivered",
+    statusColor: "primary",
+  },
+];
