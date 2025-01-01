@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+
+      <div class="top1">
+        <div class="logo">
+          <img src="./images/logo.png" alt="Logo" />
+          <h2>TIME<span class="primary-variant">CHECK</span></h2>
+        </div>
+        <div class="close" id="close-btn">
+          <span class="material-icons-sharp"> close </span>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <a href="/Dahboard/index.html">
+          <span class="material-icons-sharp"> dashboard </span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            calendar_month
+          </span>
+          <h3>Calendar</h3>
+        </a>
+        <a href="/Attendance/index.html" class="active">
+          <span class="material-icons-sharp">
+            checklist
+          </span>
+          <h3>Attendance</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">
+            group
+          </span>
+          <h3>Employee</h3>
+        </a>
+        
+        <a href="#">
+          <span class="material-icons-sharp">
+            equalizer
+          </span>
+          <h3>Leave Request</h3>
+          <span class="message-count">4</span>
+        </a>
+        
+        <a href="#">
+          <span class="material-icons-sharp"> logout </span>
+          <h3>Logout</h3>
+        </a>
+      </div>
+    </aside>
+    <main>
+      <div class="heading">
+        <h1>ATTENDANCE</h1>
+        <span id="current-date"></span>
+      </div>
+      <div class="outbar">
+        <div class="input-container">
+          <span class="material-icons-sharp">
+            search
+            </span>
+          <input type="text" id="searchInput" placeholder="Search employee" onkeyup="searchEmployee()">
+        </div>
+        <div class="bar">
+          <label for="dateRange">Date Range</label>
+          <input type="date" id="date-picker">
+        </div>
+      </div>
+      <div class="table">
+        <div id="attendance-table"></div>
+      </div>
+    </main>
+    <div class="right">
+      <div class="top">
+        <button id="menu-btn">
+          <span class="material-icons-sharp"> menu </span>
+        </button>
+        <div class="theme-toggler">
+          <span class="material-icons-sharp active"> light_mode </span>
+          <span class="material-icons-sharp"> dark_mode </span>
+        </div>
+        <div class="profile">
+          <div class="info">
+            <p>Hey, <b>Bruno</b></p>
+            <small class="text-muted">Admin</small>
+          </div>
+          <div class="profile-photo">
+            <img src="./images/profile-1.jpg" alt="Profile Picture" />
+          </div>
+        </div>
+      </div>
+      <div class="report">
+        <h2>
+          Attendance Report
+        </h2>
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+      </div>
+      <div class="myattend">
+        <h2>My Attendance</h2>
+        <table class="my"> 
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Clock In</th>
+              <th>Clock Out</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2024-10-20</td>
+              <td>09:00 AM</td>
+              <td>05:00 PM</td>
+            </tr>
+            <tr>
+              <td>2024-10-21</td>
+              <td>09:15 AM</td>
+              <td>05:05 PM</td>
+            </tr>
+            <tr>
+              <td>2024-10-22</td>
+              <td>09:10 AM</td>
+              <td>04:55 PM</td>
+            </tr>
+            <tr>
+              <td>2024-10-23</td>
+              <td>09:05 AM</td>
+              <td>05:00 PM</td>
+            </tr>
+            <tr>
+              <td>2024-10-24</td>
+              <td>09:00 AM</td>
+              <td>04:45 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    const themeToggler = document.querySelector(".theme-toggler");
+    // Change Theme
+themeToggler.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme-variables");
+
+  themeToggler.querySelector("span:nth-child(1)").classList.toggle("active");
+  themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="./constants/attendanceData.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
